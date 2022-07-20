@@ -5,7 +5,7 @@ variable "cluster_name" {
 }
 variable "location" {
   type        = string
-  default     = "australiaeast"
+  default     = "eastus"
   description = "The Azure region in to which to provision the cluster"
 }
 
@@ -52,7 +52,7 @@ variable "dns_prefix" {
 }
 variable "cluster_version" {
   type        = string
-  default     = "1.20.7"
+  default     = "1.22.11"
   description = "Kubernetes version to use for the AKS cluster"
 }
 variable "network_resource_group_name" {
@@ -128,7 +128,7 @@ variable "subdomain" {
 variable "apex_resource_group_name" {
   type        = string
   description = "The resource group in which the Azure DNS apex domain resides. Required if apex_domain_integration_enabled is true"
-  default     = ""
+  default     = "rg-apple-sandbox"
 }
 variable "dns_resource_group_name" {
   type        = string
@@ -143,17 +143,17 @@ variable "dns_resource_group_name" {
 variable "key_vault_enabled" {
   type        = string
   description = "Flag to indicate whether to provision Azure Key Vault for secret storage"
-  default     = true
+  default     = false
 }
 variable "key_vault_resource_group_name" {
   type        = string
   description = "Resource group to create in which to place key vault"
-  default     = ""
+  default     = "rg-apple-sandbox"
 }
 variable "key_vault_name" {
   type        = string
   description = "Name of Azure Key Vault to create"
-  default     = ""
+  default     = "key-vault-tfc-sandbox-2"
 }
 variable "key_vault_sku" {
   type        = string
